@@ -1,3 +1,16 @@
+import streamlit as st
+from utils.hide_st_style import hide
+
+page_title = 'Data'
+
+st.set_page_config(
+    page_title=page_title,
+)
+st.title(page_title)
+
+hide()
+
+
 def print_csv():
     import pandas as pd
     _data = 'data.csv'
@@ -25,18 +38,9 @@ def append_csv():
         st.success('Data saved!')
 
 
+# @st.experimental_get_query_params
 def Data():
     from streamlit_option_menu import option_menu as om
-
-    from utils.hide_st_style import hide
-
-    page_title = 'Data'
-    
-    st.set_page_config(
-        page_title=page_title,
-    )
-    st.title(page_title)
-    hide()
 
     choice = om('Main menu', ['Print', 'Append', ],
                 default_index=0, orientation='horizontal')
@@ -48,7 +52,6 @@ def Data():
 
 if __name__ == '__main__':
     try:
-        import streamlit as st
         Data()
     except KeyboardInterrupt:
-        print('Stopping')
+        st.text('Stopping')
