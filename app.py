@@ -10,19 +10,18 @@ def print_csv():
 def append_csv():
     import csv
 
-    _append = (int(st.sidebar.number_input('ID: ')),  # 8 attributes
-               st.sidebar.text_input('Name: '),
-               st.sidebar.text_input('Major: '),
-               st.sidebar.date_input('Date of birth (yyyy-mm-dd): '),
-               st.sidebar.text_input('Course (yyyy-yyyy): '),
-               st.sidebar.number_input('Remaining tuition fees: $'),
-               st.sidebar.checkbox('In the dormitory '),
-               st.sidebar.text_input('Address: ')
+    _append = (st.number_input('ID: '),  # 8 attributes
+               st.text_input('Name: '),
+               st.text_input('Major: '),
+               st.date_input('Date of birth (yyyy-mm-dd): '),
+               st.text_input('Course (yyyy-yyyy): '),
+               st.number_input('Remaining tuition fees: $'),
+               st.checkbox('In the dormitory '),
+               st.text_input('Address: ')
                )
     st.write(_append)
 
-    to_file = st.sidebar.button('Write to file')
-    if to_file:
+    if to_file := st.button('Write to file'):
         _data = './data.csv'
         with open(_data, 'a', newline='') as f:
             csv_writer = csv.writer(f)
