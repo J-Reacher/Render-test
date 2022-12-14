@@ -3,7 +3,7 @@ import streamlit as st
 
 def print_csv():
     import pandas as pd
-    _data = './data.csv'
+    _data = 'data.csv'
     st.write(pd.read_csv(_data))
 
 
@@ -15,14 +15,14 @@ def append_csv():
                st.text_input('Major: '),
                st.date_input('Date of birth (yyyy-mm-dd): '),
                st.text_input('Course (yyyy-yyyy): '),
-               st.number_input('Remaining tuition fees: $'),
+               st.number_input('Remaining tuition fees: vnd'),
                st.checkbox('In the dormitory '),
                st.text_input('Address: ')
                )
     st.write(_append)
 
     if to_file := st.button('Write to file'):
-        _data = './data.csv'
+        _data = 'data.csv'
         with open(_data, 'a', newline='') as f:
             csv_writer = csv.writer(f)
             csv_writer.writerow(_append)
