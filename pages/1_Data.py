@@ -25,12 +25,13 @@ def append_csv():
         st.success('Data saved!')
 
 
-def main():
+def Data():
     from streamlit_option_menu import option_menu as om
 
     from utils.hide_st_style import hide
 
     page_title = 'Data'
+    
     st.set_page_config(
         page_title=page_title,
     )
@@ -48,7 +49,6 @@ def main():
 if __name__ == '__main__':
     try:
         import streamlit as st
-
-        main()
+        Data()
     except KeyboardInterrupt:
         print('Stopping')

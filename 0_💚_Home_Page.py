@@ -1,4 +1,4 @@
-def main():
+def homepage():
     from utils.hide_st_style import hide
 
     page_title = 'Home Page'
@@ -8,10 +8,8 @@ def main():
         page_title=page_title,
         page_icon=page_icon
     )
-
     st.title(page_title)
     st.sidebar.success(page_title)
-
     hide()
 
     st.markdown("""
@@ -23,7 +21,6 @@ def main():
 if __name__ == '__main__':
     try:
         import streamlit as st
-
-        main()
+        homepage()
     except KeyboardInterrupt:
         st.text('Stopping')

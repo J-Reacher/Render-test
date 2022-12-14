@@ -1,10 +1,11 @@
-def main():
+def Matplot():
     import matplotlib.pyplot as plt
     import numpy as np
 
     from utils.hide_st_style import hide
 
     page_title = 'Matplot'
+    
     st.set_page_config(page_title=page_title,)
     st.title(page_title)
     hide()
@@ -23,7 +24,6 @@ def main():
 if __name__ == '__main__':
     try:
         import streamlit as st
-
-        main()
+        Matplot()
     except KeyboardInterrupt:
         st.text('Stopping')
