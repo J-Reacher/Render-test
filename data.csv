@@ -1,4 +1,2 @@
 ID,Name,Major,Date of birth,Course,Remaining tuition fees (vnd),In the dormitory,Address
-'0021412702,Nguyen Nhat Nam,Computer Science,2003-03-26,2021-2025,0.0,False,Dong Thap
-'2702,Nam,CS,2022-12-14,2026,123.0,True,Home now
-'2702,Mai,English,2022-12-14,2027,1000.0,False,Hong Tham restaurant
+'0021412702',Nguyen Nhat Nam,Computer Science,2003-03-26,2021-2025,0.0,False,Dong Thap
