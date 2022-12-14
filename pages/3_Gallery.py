@@ -21,6 +21,8 @@ def Gallery():
     st.image(image1, caption='Vẫn có em ở lại')
 
 
+st.sidebar.success(page_title)
+
 if __name__ == '__main__':
     try:
 

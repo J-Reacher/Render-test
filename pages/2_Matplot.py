@@ -25,6 +25,8 @@ def Matplot():
     st.pyplot(fig)
 
 
+st.sidebar.success(page_title)
+
 if __name__ == '__main__':
     try:
         Matplot()

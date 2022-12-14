@@ -50,6 +50,8 @@ def Data():
         append_csv()
 
 
+st.sidebar.success(page_title)
+
 if __name__ == '__main__':
     try:
         Data()
