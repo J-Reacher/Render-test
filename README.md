@@ -3,4 +3,4 @@
 - Nhập xuất lưu với file các thông tin của sinh viên
 - Phát triển GUI thích hơp
 - Một Cơ sở dữ liệu thích hợp
-- Đưa lên nền tảng web
+- Đưa lên nền tảng web# Render-test
