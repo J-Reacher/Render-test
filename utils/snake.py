@@ -14,7 +14,7 @@ def num(prompt):
 
 def cha(prompt, variant):
     import string
-    
+
     v = st.text_input(prompt)
 
     acquiesced = ''

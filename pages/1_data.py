@@ -1,6 +1,3 @@
-import streamlit as st
-
-
 def print_csv():
     import pandas as pd
     _data = 'data.csv'
@@ -19,19 +16,26 @@ def append_csv():
                st.checkbox('In the dormitory '),
                st.text_input('Address: ')
                )
-    st.write(_append)
-
-    if to_file := st.button('Write to file'):
+    if to_file := st.button('Save'):
         _data = 'data.csv'
         with open(_data, 'a', newline='') as f:
             csv_writer = csv.writer(f)
             csv_writer.writerow(_append)
+        st.write(_append)
+        st.success('Data saved!')
 
 
 def main():
     from streamlit_option_menu import option_menu as om
 
-    st.title('Student Management')
+    page_title = 'Data'
+    st.set_page_config(
+        page_title=page_title,
+    )
+
+    st.title(page_title)
+    hide()
+    
     choice = om('Main menu', ['Print', 'Append', ],
                 default_index=0, orientation='horizontal')
     if choice == 'Print':
@@ -42,6 +46,9 @@ def main():
 
 if __name__ == '__main__':
     try:
+        import streamlit as st
+        from utils.hide_st_style import hide
+
         main()
     except KeyboardInterrupt:
-        print('\nStopped')
+        print('Stopping')
