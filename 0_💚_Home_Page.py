@@ -1,5 +1,7 @@
 def main():
-    page_title = 'Home page'
+    from utils.hide_st_style import hide
+
+    page_title = 'Home Page'
     page_icon = '💚'
 
     st.set_page_config(
@@ -9,19 +11,18 @@ def main():
 
     st.title(page_title)
     st.sidebar.success(page_title)
-    
+
     hide()
-    
+
     st.markdown("""
                 Nothing here yet!!
                 """
-    )
+                )
 
 
 if __name__ == '__main__':
     try:
         import streamlit as st
-        from utils.hide_st_style import hide
 
         main()
     except KeyboardInterrupt:

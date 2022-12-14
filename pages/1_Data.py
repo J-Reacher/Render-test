@@ -28,14 +28,15 @@ def append_csv():
 def main():
     from streamlit_option_menu import option_menu as om
 
+    from utils.hide_st_style import hide
+
     page_title = 'Data'
     st.set_page_config(
         page_title=page_title,
     )
-
     st.title(page_title)
     hide()
-    
+
     choice = om('Main menu', ['Print', 'Append', ],
                 default_index=0, orientation='horizontal')
     if choice == 'Print':
@@ -47,7 +48,6 @@ def main():
 if __name__ == '__main__':
     try:
         import streamlit as st
-        from utils.hide_st_style import hide
 
         main()
     except KeyboardInterrupt:
