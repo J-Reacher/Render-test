@@ -10,7 +10,7 @@ def print_csv():
 def append_csv():
     import csv
 
-    _append = (st.number_input('ID: '),  # 8 attributes
+    _append = (f"'{st.number_input('ID: ')}'",  # 8 attributes
                st.text_input('Name: '),
                st.text_input('Major: '),
                st.date_input('Date of birth (yyyy-mm-dd): '),
