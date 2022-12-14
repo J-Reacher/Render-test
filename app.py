@@ -21,7 +21,8 @@ def append_csv():
                )
     st.write(_append)
 
-    if to_file := st.sidebar.button('Write to file'):
+    to_file = st.sidebar.button('Write to file')
+    if to_file:
         _data = './data.csv'
         with open(_data, 'a', newline='') as f:
             csv_writer = csv.writer(f)
