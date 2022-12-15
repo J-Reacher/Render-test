@@ -12,7 +12,6 @@ def print_csv():
 
 def append_csv():
     import csv
-
     _append = (f"'{st.number_input('ID: ')}'",  # 8 attributes
                st.text_input('Name: '),
                st.text_input('Major: '),

@@ -9,7 +9,7 @@ contact.markdown(
 @st.experimental_singleton
 def contact():
     from PIL import Image
-    st.image('images/ZaloQR.jpg', caption='Zalo me')
+    st.image('media/ZaloQR.jpg', caption='Zalo me')
 
 
 if __name__ == '__main__':
