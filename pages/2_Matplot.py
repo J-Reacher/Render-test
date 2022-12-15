@@ -1,12 +1,7 @@
 import streamlit as st
-from utils.hide_st_style import hide
+from utils.template import Template
 
-page_title = 'Matplot'
-
-st.set_page_config(page_title=page_title,)
-st.title(page_title)
-
-hide()
+matplot = Template('Matplot')
 
 
 @st.experimental_singleton
@@ -24,8 +19,6 @@ def Matplot():
     ax.plot(x, y)
     st.pyplot(fig)
 
-
-st.sidebar.success(page_title)
 
 if __name__ == '__main__':
     try:

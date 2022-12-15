@@ -1,30 +1,17 @@
 import streamlit as st
-from utils.hide_st_style import hide
+from utils.template import Template
 
-page_title = 'Home Page'
-page_icon = '💚'
-
-st.set_page_config(
-    page_title=page_title,
-    page_icon=page_icon
-)
-st.title(page_title)
-
-hide()
+home = Template('Home')
+home.markdown(
+    'Hello, wellcome to my website!!, the menu is located at top-left ↖ corner')
 
 
-@st.experimental_singleton
-def homepage():
-    st.markdown("""
-                Nothing here yet!!
-                """
-                )
+def home():
+    st.video('media/hanhtrinh_2ngay1dem.mp4')
 
-
-st.sidebar.success(page_title)
 
 if __name__ == '__main__':
     try:
-        homepage()
+        home()
     except KeyboardInterrupt:
         st.text('Stopping')

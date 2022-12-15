@@ -1,14 +1,7 @@
 import streamlit as st
-from utils.hide_st_style import hide
+from utils.template import Template
 
-page_title = 'Data'
-
-st.set_page_config(
-    page_title=page_title,
-)
-st.title(page_title)
-
-hide()
+data = Template('Data')
 
 
 def print_csv():
@@ -38,7 +31,6 @@ def append_csv():
         st.success('Data saved!')
 
 
-# @st.experimental_get_query_params
 def Data():
     from streamlit_option_menu import option_menu as om
 
@@ -49,8 +41,6 @@ def Data():
     elif choice == 'Append':
         append_csv()
 
-
-st.sidebar.success(page_title)
 
 if __name__ == '__main__':
     try:
