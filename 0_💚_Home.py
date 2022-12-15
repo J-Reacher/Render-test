@@ -14,8 +14,7 @@ def home():
         st.markdown('## Hello!!')
     with column3:
         st.markdown('💚💚💚')
-    st.video('media/hanhtrinh_2ngay1dem.mp4')
-    st.text('Hành trình 2 ngày 1 đêm với mn tại DH Khoa học Tự nhiên')
+    st.video('https://youtu.be/beACOLaYtkM')
 
 
 if __name__ == '__main__':
