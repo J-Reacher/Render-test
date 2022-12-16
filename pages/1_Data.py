@@ -79,6 +79,6 @@ if __name__ == '__main__':
     if choice == 'Insert':
         rows = run_query('SELECT * FROM Pets;')
         for row in rows:
-            st.write(row[0], row[1])
+            st.write(f"{row[0]} has a :{row[1]}:")
             
         # run_query('SELECT * FROM Student;')
