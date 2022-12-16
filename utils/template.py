@@ -8,14 +8,9 @@ class Template:
         st.set_page_config(
             page_title=page_title,
             page_icon=page_icon,
+            layout='wide'
         )
         hide()
         st.title(page_title)
         st.sidebar.title('About')
         st.sidebar.info('GitHub repository: <https://github.com/J-Reacher/Sm>')
-
-    @staticmethod
-    def markdown(markdown=None):
-        st.markdown(f"""
-                    {markdown}
-                    """)

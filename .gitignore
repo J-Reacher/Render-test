@@ -3,9 +3,12 @@
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
-__pycache__/
+utils/__pycache__/
 *.py[cod]
 *$py.class
+
+# 
+.streamlit/secrets.toml
 
 # C extensions
 *.so

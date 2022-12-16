@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.template import Template
+from utils import Template
 
 gallery = Template('Gallery')
 
@@ -11,8 +11,4 @@ def Gallery():
 
 
 if __name__ == '__main__':
-    try:
-
-        Gallery()
-    except KeyboardInterrupt:
-        st.write('Stopping')
+    Gallery()

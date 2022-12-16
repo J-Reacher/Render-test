@@ -1,2 +1,20 @@
-ID,Name,Major,Date of birth,Course,Remaining fees (vnd),In the dormitory,Address
-'0021412702',Nguyen Nhat Nam,Computer Science,2003-03-26,2021-2025,0.0,False,Dong Thap
+ID,Name,Major,Date_of_birth,Course,Remaining_fees_(vnd),In_the_dormitory,Address
+21410254,Pham The Hoc,CS,2002-02-15,2021-2025,12000000.0,False,"Lai Vung, Dong Thap"
+21411306,Phạm Chí Hiếu,Sư phạm Toán học,2003-06-30,2021-2025,0.0,False,"Ấp 2, Phong Nẫm, Giòng Trôm, Bến Tre"
+21412702,Nguyen Nhat Nam,Computer Science,2003-03-26,2021-2025,0.0,False,"Cao Lanh City, Dong Thap"
+0,,,2022-12-16,,0.0,False,
+0,,,2022-12-16,,0.0,False,
+0,,,2022-12-16,,0.0,False,
+21412702,Nguyen Nhat Nam,CS,2022-12-16,,0.0,True,asdf
+123,,,2022-12-16,,0.0,False,
+123,Hello,Major,2022-12-16,not plank,0.0,True,yes i'm home
+0,,,2022-12-16,,0.0,False,
+0,,,2022-12-16,,0.0,False,
+0,,,2022-12-16,,0.0,False,ahah
+0,,,2022-12-16,,0.0,False,ahah
+0,,,2022-12-16,,0.0,False,no way
+0,,,2022-12-16,,0.0,False,
+0,,,2022-12-16,,0.0,False,adding something
+0,dfgbwr,,2022-12-16,,0.0,False,
+0,dfgbwr,,2022-12-16,Add some courses,0.0,False,
+432,,,2022-12-16,,0.0,False,

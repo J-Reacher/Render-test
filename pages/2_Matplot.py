@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.template import Template
+from utils import Template
 
 matplot = Template('Matplot')
 
@@ -21,7 +21,5 @@ def Matplot():
 
 
 if __name__ == '__main__':
-    try:
-        Matplot()
-    except KeyboardInterrupt:
-        st.text('Stopping')
+    Matplot()
+    
