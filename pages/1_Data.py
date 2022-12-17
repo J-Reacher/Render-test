@@ -65,7 +65,7 @@ def menu():
         choice = om('Main menu', ['Insert'])
     with col2:
         if choice == 'Insert':
-            with st.expander('Infos'):
+            with st.expander('Insert infos'):
                 table_name = st.text_input('Table name:')
                 st.markdown('---')
                 user_input = [
