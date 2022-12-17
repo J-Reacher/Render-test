@@ -31,28 +31,8 @@ def run_query(query):
         return cur.fetchall()
 
 
-def get_input():
-    col1, col2 = st.columns(2)
-    with col1:
-        column1 = [
-            int(st.number_input('ID:')),
-            st.text_input('Name:'),
-            st.text_input('Major:'),
-            st.date_input('Date of birth (yyyy-mm-dd):'),
-        ]
-    with col2:
-        column2 = [
-            st.text_input('Course (yyyy-yyyy):'),
-            st.number_input('Remaining tuition fee: vnd'),
-            st.checkbox('In the dormitory?'),
-            st.text_area('Address:'),
-        ]
-    return column1 + column2
-
-
 def main():
-    def col_names(table_name):
-        return [column[0] for column in run_query(f"SHOW COLUMNS FROM {table_name};")]
+    col_names = lambda table_name: [column[0] for column in run_query(f"SHOW COLUMNS FROM {table_name};")]
 
     st.markdown("A connection test with MySQL remote server")
     with st.echo():
