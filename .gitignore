@@ -4,7 +4,6 @@
 ### Python ###
 # Byte-compiled / optimized / DLL files
 utils/__pycache__/
-utils/snake.py
 *.py[cod]
 *$py.class
 
