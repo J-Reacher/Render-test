@@ -67,9 +67,8 @@ def menu():
         if choice == 'Insert':
             with st.expander('Insert infos'):
                 st.markdown('---')
-            if st.button('Commit'):
-                run_query(f"""
-                        INSERT INTO {table_name} VALUES(
+                the_query = f"""
+                        INSERT INTO {st.selectbox( 'Table name:', run_query('SHOW TABLES;') )} VALUES(
                         {st.number_input('StudentID:')},
                         {st.text_input('Name:')},
                         {st.text_input('Major:')},
@@ -79,7 +78,10 @@ def menu():
                         {st.radio('In dormitory?', ['No', 'Yes'])},
                         {st.text_area('Address')},
                         )
-                        """)
+                        """
+            if st.button('Commit'):
+                run_query(the_query)
+
     
 
 
