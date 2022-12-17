@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu as om
 import mysql.connector
 import pandas as pd
 
-from utils import Template
+from template import Template
 data = Template('Data')
 
 st.sidebar.info(("""
@@ -66,25 +66,20 @@ def menu():
     with col2:
         if choice == 'Insert':
             with st.expander('Insert infos'):
-                table_name = st.text_input('Table name:')
                 st.markdown('---')
-                user_input = [
-                    st.number_input('StudentID:'),
-                    st.text_input('Name:'),
-                    st.text_input('Major:'),
-                    st.date_input('DOB:'),
-                    st.date_input('Course:').year,
-                    st.number_input('Remaining fees:'),
-                    st.radio('In dormitory?', ['No', 'Yes']),
-                    st.text_area('Address'),
-                ]
             if st.button('Commit'):
-                st.write(user_input)
-                # run_query(f"""
-                #         INSERT INTO {table_name} VALUES(
-                #         {np.array_split(user_input, 8)}
-                #         )
-                #         """)
+                run_query(f"""
+                        INSERT INTO {table_name} VALUES(
+                        {st.number_input('StudentID:')},
+                        {st.text_input('Name:')},
+                        {st.text_input('Major:')},
+                        {st.date_input('DOB:')},
+                        {st.date_input('Course:').year},
+                        {st.number_input('Remaining fees:')},
+                        {st.radio('In dormitory?', ['No', 'Yes'])},
+                        {st.text_area('Address')},
+                        )
+                        """)
     
 
 

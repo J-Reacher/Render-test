@@ -1,5 +1,4 @@
 import streamlit as st
-from utils.hide_st_style import hide
 
 
 class Template:
@@ -10,7 +9,17 @@ class Template:
             page_icon=page_icon,
             layout='wide'
         )
-        hide()
+        # hide_st_style
+        # header {visibility: hidden;}
+        # #MainMenu {visibility: hidden;}
+        st.markdown("""
+                <style>
+                
+                
+                footer {visibility: hidden;}
+                </style>
+                """, unsafe_allow_html=True)
+        
         st.title(page_title)
         st.sidebar.title('About')
         st.sidebar.info('GitHub repository: <https://github.com/J-Reacher/Sm>')

@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import Template
+from template import Template
 
 contact = Template('Contact')
 st.markdown(
@@ -12,5 +12,4 @@ def contact():
     st.image('media/ZaloQR.jpg', caption='Zalo me')
 
 
-if __name__ == '__main__':
     contact()

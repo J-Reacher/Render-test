@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import Template
+from template import Template
 
 matplot = Template('Matplot')
 
