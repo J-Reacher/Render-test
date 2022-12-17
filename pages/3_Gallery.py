@@ -11,4 +11,5 @@ def Gallery():
 
 
 if __name__ == '__main__':
+    st.snow()
     Gallery()
