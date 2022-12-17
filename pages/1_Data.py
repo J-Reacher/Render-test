@@ -58,12 +58,11 @@ def example():
 def menu():
     col1, col2 = st.columns(2)
     with col1:
-        choice = om('Main menu', ['Insert'])
-        
         # Query directly from the web
         the_query = st.text_area('The query:')
         if st.button('Query'):
             st.write(pd.DataFrame( run_query(the_query) ))
+        choice = om('Main menu', ['Insert'])
     with col2:
         if choice == 'Insert':
             with st.expander('Infos'):
