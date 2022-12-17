@@ -4,8 +4,6 @@ from streamlit_option_menu import option_menu as om
 
 import mysql.connector
 import pandas as pd
-import numpy as np
-import datetime
 
 from utils import Template
 data = Template('Data')
