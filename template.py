@@ -11,10 +11,9 @@ class Template:
         )
         # hide_st_style
         # header {visibility: hidden;}
-        # #MainMenu {visibility: hidden;}
         st.markdown("""
                 <style>
-                
+                #MainMenu {visibility: hidden;}
                 
                 footer {visibility: hidden;}
                 </style>
