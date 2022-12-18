@@ -1,7 +1,8 @@
+beautifulsoup4
 matplotlib
 mysql_connector_python
 numpy
 pandas
-Pillow
+requests
 streamlit
 streamlit_option_menu
