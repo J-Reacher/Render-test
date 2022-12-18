@@ -60,8 +60,6 @@ def menu():
         if st.button('Query'):
             run_query(the_query)
             st.write(pd.DataFrame( run_query(the_query) ))
-        if st.button('Requery'):
-            example()
             
     with col2:
         choice = om('Main menu', ['Insert'])
