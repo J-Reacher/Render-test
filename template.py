@@ -11,7 +11,7 @@ class Template:
         )
         # hide_st_style
         # header {visibility: hidden;}
-        ##MainMenu {visibility: hidden;}
+        # MainMenu {visibility: hidden;}
         st.markdown("""
                 <style>
                 
@@ -19,7 +19,11 @@ class Template:
                 footer {visibility: hidden;}
                 </style>
                 """, unsafe_allow_html=True)
-        
+
         st.title(page_title)
         st.sidebar.title('About')
         st.sidebar.info('GitHub repository: <https://github.com/J-Reacher/Sm>')
+
+        if st.sidebar.button('Clear all caches'):
+            st.experimental_memo.clear()
+            st.experimental_singleton.clear()

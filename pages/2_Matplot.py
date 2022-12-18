@@ -1,11 +1,12 @@
 import streamlit as st
+
 from template import Template
 
 matplot = Template('Matplot')
 
 
 @st.experimental_singleton
-def Matplot():
+def main():
     with st.echo():
         import matplotlib.pyplot as plt
         import numpy as np
@@ -22,5 +23,4 @@ def Matplot():
 
 
 if __name__ == '__main__':
-    Matplot()
-    
+    main()
