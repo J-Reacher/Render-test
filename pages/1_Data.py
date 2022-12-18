@@ -15,7 +15,6 @@ st.sidebar.info(("""
                     """))
 st.sidebar.info("""
                 The emojis you've seen is available from [Streamlit emoji shortcodes](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
-                
                 """)
 
 
@@ -58,7 +57,6 @@ def menu():
         # Query directly from the web
         the_query = st.text_area('The query:')
         if st.button('Query'):
-            run_query(the_query)
             st.write(pd.DataFrame( run_query(the_query) ))
             
     with col2:

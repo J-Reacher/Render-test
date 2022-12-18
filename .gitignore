@@ -6,8 +6,9 @@
 *.py[cod]
 *$py.class
 
-# 
+# Additional
 .streamlit/secrets.toml
+test.py
 
 # C extensions
 *.so
