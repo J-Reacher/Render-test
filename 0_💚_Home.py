@@ -17,7 +17,8 @@ def apod():
     for image in images:
         name = image['alt']
         link = image['src']
-    st.header('Astronomy Picture of the Day')    
+    st.header('Astronomy Picture of the Day')
+    st.info(f'[Original Image]({url})')    
     st.image(f'{url}{link}', caption=name)
 
 
