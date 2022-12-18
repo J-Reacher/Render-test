@@ -18,3 +18,11 @@ CREATE TABLE Student (
     studentID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (studentID)
 );
+
+INSERT INTO
+    Pets
+VALUES
+    ('Nhat Nam', 'Crocodile'),
+    ('Hong Phuc', 'Shark'),
+    ('Ngoc Mai', 'Panther'),
+    ('Minh Nhan', 'Moew');
