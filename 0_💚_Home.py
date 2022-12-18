@@ -3,10 +3,9 @@ from bs4 import BeautifulSoup
 import streamlit as st
 
 from template import Template
-
 home = Template('Home')
 
-
+# Get the iamge and its alternative text from apod's website
 @st.experimental_memo
 def apod():
     url = 'https://apod.nasa.gov/apod/'
