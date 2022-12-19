@@ -83,13 +83,13 @@ def menu():
         if st.button('Query'):
             st.write(pd.DataFrame(run_query(the_query)))
     with col2:
-        choice = om(None, ['Insert'])
+        choice = om(None, ['Insert', 'Delete', 'Update (Alter)'])
         if choice == 'Insert':
             with st.expander('Insert Info'):
                 st.markdown('---')
-                # the_query = _extracted_from_menu()
-            # if st.button('Commit'):
-            #     run_query(the_query)
+                the_query = _extracted_from_menu()
+            if st.button('Commit'):
+                run_query(the_query)
 
 
 def _extracted_from_menu():
