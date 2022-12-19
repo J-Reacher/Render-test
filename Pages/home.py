@@ -29,9 +29,7 @@ def home_page():
         apod()
 
     with col2:
-        st.header("""
-                  Welcome to my website!!
-                  """)
+        st.header("Welcome to my website!!")
         st.markdown('A short yet memorable time to me')
         st.markdown(
             'Editor: [Dan Khanh](https://www.facebook.com/nangva.mua.908)')
