@@ -4,7 +4,7 @@ import streamlit as st
 import hydralit as hy
 
 
-app = hy.HydraApp(title='Simple Muliti_page App',)
+app = hy.HydraApp(title='Nhat Nam',)
 
 
 @app.addapp(is_home=True)
