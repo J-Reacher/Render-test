@@ -90,6 +90,8 @@ def menu():
                 the_query = _extracted_from_menu()
             if st.button('Commit'):
                 run_query(the_query)
+        if choice == 'Delete':
+            st.text('---')
 
 
 def _extracted_from_menu():
