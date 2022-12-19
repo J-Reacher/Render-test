@@ -72,7 +72,8 @@ def sidebar():
             webbrowser.open('https://zalo.me/0325808700')
     with col2:
         if st.sidebar.button('Facebook'):
-            webbrowser.open('https://www.facebook.com/profile.php?id=100024994269437')
+            webbrowser.open(
+                'https://www.facebook.com/profile.php?id=100024994269437')
     st.sidebar.image('media/ZaloQR.jpg', caption='Zalo me')
 
 
