@@ -83,7 +83,7 @@ def menu():
         if st.button('Query'):
             st.write(pd.DataFrame(run_query(the_query)))
     with col2:
-        choice = om('Main menu', ['Insert'])
+        choice = om(None, ['Insert'])
         if choice == 'Insert':
             with st.expander('Insert Info'):
                 st.markdown('---')
