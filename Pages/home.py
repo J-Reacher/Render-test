@@ -32,5 +32,7 @@ def home_page():
         st.header("""
                   Welcome to my website!!
                   """)
-        st.text('A short yet memorable time to me')
+        st.markdown('A short yet memorable time to me')
+        st.markdown(
+            'Editor: [Dan Khanh](https://www.facebook.com/nangva.mua.908)')
         st.video('https://youtu.be/beACOLaYtkM')
