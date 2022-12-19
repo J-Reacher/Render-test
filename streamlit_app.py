@@ -7,7 +7,7 @@ import hydralit as hy
 app = hy.HydraApp(title='Nhat Nam',)
 
 
-@app.addapp(is_home=True)
+@app.addapp(title='Home', icon='🏡', is_home=True)
 def Home():
     st.title('Home')
     from Pages.home import home_page
@@ -44,7 +44,7 @@ def Gallery():
     gallery_page()
 
 
-@app.addapp()
+@app.addapp(title='Contact', icon='⌕')
 def Contact():
     st.title('Contact')
     from Pages.contact import contact_page
