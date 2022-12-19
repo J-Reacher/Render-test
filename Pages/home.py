@@ -30,7 +30,7 @@ def home_page():
 
     with col2:
         st.header("""
-                    Welcome to my website!!
-                    """)
-        st.info('The menu is located at top-left ↖ corner')
+                  Welcome to my website!!
+                  """)
+        st.text('A short yet memorable time to me')
         st.video('https://youtu.be/beACOLaYtkM')
