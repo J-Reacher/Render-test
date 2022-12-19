@@ -2,10 +2,6 @@ import requests
 import streamlit as st
 from bs4 import BeautifulSoup
 
-from template import Template
-
-home = Template('Home')
-
 
 # Get the image and its alternative text from apod's website
 @st.experimental_memo
@@ -27,8 +23,7 @@ def apod():
     st.image(f'{url}{link}', caption=name)
 
 
-@st.experimental_singleton(suppress_st_warning=True)
-def home():
+def home_page():
     col1, col2 = st.columns([0.5, 0.5])
     with col1:
         apod()
@@ -39,8 +34,3 @@ def home():
                     """)
         st.info('The menu is located at top-left ↖ corner')
         st.video('https://youtu.be/beACOLaYtkM')
-
-
-if __name__ == '__main__':
-    st.balloons()
-    home()

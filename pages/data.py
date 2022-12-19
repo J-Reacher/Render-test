@@ -4,10 +4,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu as om
 
-from template import Template
-
-data = Template('Data')
-
 st.sidebar.info(("""
                  Student management using Python's module [Streamlit](https://streamlit.io/)
                  and
@@ -17,6 +13,26 @@ st.sidebar.info("""
                 The emojis you've seen is available from
                 [Streamlit emoji shortcodes](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
                 """)
+
+
+# Initialize connection.
+# Uses st.experimental_singleton to only run once.
+@st.experimental_singleton
+def init_connection():
+    return mysql.connector.connect(**st.secrets["mysql"])
+
+
+conn = init_connection()
+
+# Perform query.
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+
+
+@st.experimental_memo(ttl=600)
+def run_query(query):
+    with conn.cursor() as cur:
+        cur.execute(query)
+        return cur.fetchall()
 
 
 @st.experimental_singleton
@@ -96,32 +112,3 @@ def _extracted_from_menu():
                 ('{student_id}', '{student_name}', '{major}', '{dob}',
                 '{learning_course}', '{fees}', '{dormitory}', '{address}');
             """
-
-
-if __name__ == '__main__':
-    execute()
-    sep()
-
-    # Initialize connection.
-    # Uses st.experimental_singleton to only run once.
-
-    @st.experimental_singleton
-    def init_connection():
-        return mysql.connector.connect(**st.secrets["mysql"])
-
-    conn = init_connection()
-
-    # Perform query.
-    # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-
-    @st.experimental_memo(ttl=600)
-    def run_query(query):
-        with conn.cursor() as cur:
-            cur.execute(query)
-            return cur.fetchall()
-
-    st.markdown("A connection test with MySQL remote server")
-    example()
-    sep()
-
-    menu()

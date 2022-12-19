@@ -1,12 +1,8 @@
 import streamlit as st
 
-from template import Template
-
-contact = Template('Contact')
-
 
 @st.experimental_singleton
-def main():
+def contact_page():
     col1, col2 = st.columns([0.2, 0.8])
     with col1:
         st.markdown(
@@ -14,7 +10,3 @@ def main():
 
     with col2:
         st.image('media/ZaloQR.jpg', caption='Zalo me')
-
-
-if __name__ == '__main__':
-    main()

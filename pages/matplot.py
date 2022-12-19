@@ -1,12 +1,8 @@
 import streamlit as st
 
-from template import Template
-
-matplot = Template('Matplot')
-
 
 @st.experimental_singleton
-def main():
+def matplot_page():
     with st.echo():
         import matplotlib.pyplot as plt
         import numpy as np
@@ -20,7 +16,3 @@ def main():
         fig, ax = plt.subplots()
         ax.plot(x, y)
         st.pyplot(fig)  # import streamlit as st
-
-
-if __name__ == '__main__':
-    main()
