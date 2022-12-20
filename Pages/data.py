@@ -62,6 +62,10 @@ def col_names(table_name):
     return [row[0] for row in run_query(f"SHOW COLUMNS FROM {table_name};")]
 
 
+def table_names():
+    return [i[0] for i in run_query('SHOW TABLES;')]
+
+
 @st.experimental_singleton
 def example():
     # Displays the codes and then executes it
@@ -75,7 +79,7 @@ def example():
                 columns=col_names(table_name)
             )
 
-        for table in run_query('SHOW TABLES;'):
+        for table in table_names():
             st.header(f'Table {table}')
             st.write(examples(table))
 
@@ -104,7 +108,7 @@ def menu():
 
 
 def _insert():
-    table_name = st.selectbox('Table name:', [i[0] for i in run_query('SHOW TABLES;')])
+    table_name = st.selectbox('Table name:', table_names())
 
     student_id = st.number_input('StudentID:')
     student_name = st.text_input('Name:')
