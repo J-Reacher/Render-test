@@ -69,5 +69,12 @@ def sidebar():
 
 if __name__ == '__main__':
     sidebar()
+    from streamlit_extras.switch_page_button import switch_page
     if st.button('Home'):
-        st.switch_page('Home')
+        switch_page('Home')
+    if st.button('Data'):
+        switch_page('Data')
+    if st.button('Matplot'):
+        switch_page('Matplot')
+    if st.button('Gallery'):
+        switch_page('Gallery')
