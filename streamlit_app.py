@@ -76,8 +76,9 @@ if __name__ == '__main__':
     sidebar()
 
     pages = ['Home', 'Data', 'Matplot', 'Gallery']
-    selected_page = om(None, pages)
-    with selected_page == 'Home':
+    page_icons = ['house', '', '', '']
+    selected_page = om(None, pages, icons=page_icons, orientation='horizontal')
+    if selected_page == 'Home':
         home()
     if selected_page == 'Data':
         data()
