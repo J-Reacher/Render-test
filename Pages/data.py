@@ -91,14 +91,15 @@ class Data:
 
         col1, col2 = st.columns([0.6, 0.4])
         with col1:
+            options = ['Insert', 'Update', 'Delete']
+            choice = om(None, options)
+            _choices(choice, options)
+
+        with col2:
             # Query directly from the web
             the_query = st.text_area('The query:', 'SELECT * FROM Pets;')
             if st.button('Query'):
                 st.write(pd.DataFrame(self.run_query(the_query)))
-        with col2:
-            options = ['Insert', 'Update', 'Delete']
-            choice = om(None, options)
-            _choices(choice, options)
 
     def _insert(self):
         table_name = st.selectbox('Table name:', [i[0] for i in self.run_query('SHOW TABLES;')])
