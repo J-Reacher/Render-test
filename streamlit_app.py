@@ -6,14 +6,14 @@ import streamlit as st
 
 def home():
     st.title('Home')
-    from Pages.home import home_page
+    from pages.home import home_page
     st.balloons()
     home_page()
 
 
 def data():
     st.title('Data')
-    from Pages.data import sep, execute, example, menu
+    from pages.data import sep, execute, example, menu
 
     execute()
     sep()
@@ -28,13 +28,13 @@ def data():
 
 def matplot():
     st.title('Matplot')
-    from Pages.matplot import matplot_page
+    from pages.matplot import matplot_page
     matplot_page()
 
 
 def gallery():
     st.title('Gallery')
-    from Pages.gallery import gallery_page
+    from pages.gallery import gallery_page
     st.snow()
     gallery_page()
 
@@ -72,10 +72,9 @@ if __name__ == '__main__':
         page_title='Nhat Nam',
         page_icon=':green_heart:',
         layout='wide',
-        initial_sidebar_state='collapsed'
     )
     sidebar()
-    if st.button('Home'):
+    with st.button('Home'):
         home()
     if st.button('Data'):
         data()
