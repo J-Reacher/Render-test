@@ -60,10 +60,10 @@ def sidebar():
 
     # Contact information
     st.sidebar.title('Contact')
-    st.markdown("""
-                If you find me interested, contact me on [Zalo](https://zalo.me/0325808700)
-                 of [Facebook](https://www.facebook.com/profile.php?id=100024994269437)
-                """)
+    st.sidebar.markdown("""
+                        If you find me interested, contact me on [Zalo](https://zalo.me/0325808700)
+                         of [Facebook](https://www.facebook.com/profile.php?id=100024994269437)
+                        """)
     st.sidebar.image('media/ZaloQR.jpg', caption='Zalo me')
 
 
