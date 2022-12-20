@@ -8,15 +8,15 @@ VALUES
     ('Robert', 'bird');
 
 CREATE TABLE Student (
+    studentID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (studentID),
     Name VARCHAR(64),
     Major VARCHAR(32),
     DOB DATE,
     Course YEAR,
     Remaining_fee FLOAT(10),
-    In_dormitory ENUM('y', 'n'),
-    Address VARCHAR(128),
-    studentID INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (studentID)
+    In_dormitory ENUM('Yes', 'No'),
+    Address VARCHAR(128)
 );
 
 INSERT INTO

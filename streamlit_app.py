@@ -18,16 +18,18 @@ def home():
 @app.addapp(title='Data')
 def data():
     st.title('Data')
-    from Pages.data import sep, execute, example, menu
-    execute()
-    sep()
+    from Pages.data import Data
+
+    my_data = Data()
+    my_data.execute()
+    my_data.sep()
 
     if st.button('Examples'):
         st.markdown("A connection test with MySQL remote server")
-        example()
-    sep()
+        my_data.example()
+    my_data.sep()
 
-    menu()
+    my_data.menu()
 
 
 @app.addapp(title='Matplot')
