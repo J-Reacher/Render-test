@@ -1,13 +1,8 @@
 # streamlit_app.py
 
 import hydralit as hy
-import hydralit_components as hc
 import streamlit as st
-
-# For open link
 import webbrowser
-
-hc.nav_bar(menu_definition=None, sticky_nav=True)
 
 app = hy.HydraApp(title='Nhat Nam', navbar_animation=False)
 
