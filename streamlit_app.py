@@ -7,7 +7,7 @@ import streamlit as st
 # For open link
 import webbrowser
 
-hc.nav_bar(sticky_nav=True)
+hc.nav_bar(menu_definition=None, sticky_nav=True)
 
 app = hy.HydraApp(title='Nhat Nam', navbar_animation=False)
 
