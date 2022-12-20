@@ -20,13 +20,13 @@ class Data:
         try:
             # Initialize connection.
             # Uses st.experimental_singleton to only run once.
-            @st.experimental_singleton
+            # @st.experimental_singleton
             def init_connection():
                 return mysql.connector.connect(**st.secrets["mysql"])
 
             self.conn = init_connection()
         except AttributeError as e:
-            st.error(e)
+            st.info(e)
 
     # Perform query.
     # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
