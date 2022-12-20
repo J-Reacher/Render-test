@@ -49,7 +49,6 @@ def sep():
                     """)
 
 
-@st.experimental_singleton
 def execute():
     your_codes = st.text_area('Codes you type below will be executed directly:',
                               "st.write(':sunny: Nam has a :snake: pet in his backyard')")
