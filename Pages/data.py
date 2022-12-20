@@ -75,14 +75,9 @@ def example():
                 columns=col_names(table_name)
             )
 
-        # Column1 will take 0.3 width and Column2 will take 0.7 width of the page
-        col1, col2 = st.columns([0.3, 0.7])
-        with col1:
-            st.header('Table Pets')
-            st.write(examples('Pets'))
-        with col2:
-            st.header('Table Students')
-            st.write(examples('Students'))
+        for table in run_query('SHOW TABLES;'):
+            st.header(f'Table {table}')
+            st.write(examples(table))
 
 
 def menu():
