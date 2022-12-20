@@ -1,4 +1,5 @@
 # streamlit_app.py
+import streamlit as st
 
 
 def home():
@@ -65,8 +66,8 @@ def sidebar():
 
 
 if __name__ == '__main__':
-    import streamlit as st
-    import streamlit_option_menu as om
+    from streamlit_option_menu import option_menu as om
+
     st.set_page_config(
         page_title='Nhat Nam',
         page_icon=':green_heart:',
