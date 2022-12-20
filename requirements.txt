@@ -1,9 +1,9 @@
 beautifulsoup4
-hydralit
 matplotlib
 mysql_connector_python
 numpy
 pandas
 requests
 streamlit
+streamlit_extras
 streamlit_option_menu
