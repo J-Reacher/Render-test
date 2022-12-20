@@ -68,6 +68,12 @@ def sidebar():
 
 
 if __name__ == '__main__':
+    st.set_page_config(
+        page_title='Nhat Nam',
+        page_icon=':green_heart:',
+        layout='wide',
+        initial_sidebar_state='collapsed'
+    )
     sidebar()
     if st.button('Home'):
         home()
