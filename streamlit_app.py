@@ -1,19 +1,16 @@
 # streamlit_app.py
 
 
-import streamlit as st
-
-
 def home():
     st.title('Home')
-    from pages.home import home_page
+    from Pages.home import home_page
     st.balloons()
     home_page()
 
 
 def data():
     st.title('Data')
-    from pages.data import sep, execute, example, menu
+    from Pages.data import sep, execute, example, menu
 
     execute()
     sep()
@@ -28,13 +25,13 @@ def data():
 
 def matplot():
     st.title('Matplot')
-    from pages.matplot import matplot_page
+    from Pages.matplot import matplot_page
     matplot_page()
 
 
 def gallery():
     st.title('Gallery')
-    from pages.gallery import gallery_page
+    from Pages.gallery import gallery_page
     st.snow()
     gallery_page()
 
@@ -68,17 +65,22 @@ def sidebar():
 
 
 if __name__ == '__main__':
+    import streamlit as st
+    import streamlit_option_menu as om
     st.set_page_config(
         page_title='Nhat Nam',
         page_icon=':green_heart:',
         layout='wide',
     )
     sidebar()
-    with st.button('Home'):
+
+    pages = ['Home', 'Data', 'Matplot', 'Gallery']
+    selected_page = om(None, pages)
+    with selected_page == 'Home':
         home()
-    if st.button('Data'):
+    if selected_page == 'Data':
         data()
-    if st.button('Matplot'):
+    if selected_page == 'Matplot':
         matplot()
-    if st.button('Gallery'):
+    if selected_page == 'Gallery':
         gallery()
