@@ -81,8 +81,8 @@ def example():
             st.header('Table Pets')
             st.write(examples('Pets'))
         with col2:
-            st.header('Table Student')
-            st.write(examples('Student'))
+            st.header('Table Students')
+            st.write(examples('Students'))
 
 
 def menu():
