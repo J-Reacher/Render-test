@@ -24,7 +24,7 @@ def init_connection():
 
 try:
     conn = init_connection()
-except AttributeError as e:
+except Exception as e:
     st.info(e)
 
 
