@@ -57,10 +57,6 @@ def sidebar():
     st.sidebar.title('About')
     st.sidebar.info('GitHub repository: <https://github.com/J-Reacher/Sm>')
 
-    if st.sidebar.button('Clear all caches'):
-        st.experimental_memo.clear()
-        st.experimental_singleton.clear()
-
     # Contact information
     st.sidebar.title('Contact')
     st.sidebar.markdown("""
@@ -83,11 +79,6 @@ if __name__ == '__main__':
     pages = ['Home', 'Data', 'Matplot', 'Gallery']
     page_icons = ['house', '', '', '']
     selected_page = om(None, pages, icons=page_icons, orientation='horizontal')
-    if selected_page == 'Home':
-        home()
-    if selected_page == 'Data':
-        data()
-    if selected_page == 'Matplot':
-        matplot()
-    if selected_page == 'Gallery':
-        gallery()
+    for page in pages:
+        if selected_page == page:
+            eval(f'{page.lower()}()')
