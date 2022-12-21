@@ -23,6 +23,7 @@ def init_connection():
 
 try:
     conn = init_connection()
+    cur = conn.cursor()
 except AttributeError as e:
     st.info(e)
 
@@ -30,12 +31,11 @@ except AttributeError as e:
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 def run_query(query):
-    with conn.cursor() as cur:
-        try:
-            cur.execute(query)
-        except SyntaxError:
-            st.warning('MySQL syntax error')
-        return cur.fetchall()
+    try:
+        cur.execute(query)
+    except SyntaxError:
+        st.warning('MySQL syntax error')
+    return cur.fetchall()
 
 
 @st.experimental_singleton
