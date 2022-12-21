@@ -6,6 +6,10 @@ VALUES
     ('Mary', 'dog'),
     ('John', 'cat'),
     ('Robert', 'bird');
+    ('Nhat Nam', 'Crocodile'),
+    ('Hong Phuc', 'Shark'),
+    ('Ngoc Mai', 'Panther'),
+    ('Minh Nhan', 'Moew');
 
 CREATE TABLE Students (
     StudentID INT UNSIGNED NOT NULL,
@@ -18,11 +22,3 @@ CREATE TABLE Students (
     Address VARCHAR(128),
     PRIMARY KEY (StudentID)
 );
-
-INSERT INTO
-    Pets
-VALUES
-    ('Nhat Nam', 'Crocodile'),
-    ('Hong Phuc', 'Shark'),
-    ('Ngoc Mai', 'Panther'),
-    ('Minh Nhan', 'Moew');
