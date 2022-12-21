@@ -31,7 +31,7 @@ except AttributeError as e:
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 def run_query(query):
     try:
-        with conn.cursor() as cur:
+        with conn.cursor(buffered=True) as cur:
             cur.execute(query)
     except SyntaxError:
         st.warning('MySQL syntax error')
