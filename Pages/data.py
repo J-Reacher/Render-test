@@ -35,7 +35,8 @@ def run_query(query):
             cur.execute(query)
     except SyntaxError:
         st.warning('MySQL syntax error')
-    return cur.fetchall()
+    cur.fetchall()
+    cur.close()
 
 
 @st.experimental_singleton
