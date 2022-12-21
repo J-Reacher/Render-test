@@ -27,17 +27,6 @@ def gallery():
 
 
 def sidebar():
-    # hide_st_style
-    # header {visibility: hidden;}
-    #
-    st.markdown("""
-                <style>
-                #MainMenu {visibility: hidden;}
-                
-                footer {visibility: hidden;}
-                </style>
-                """, unsafe_allow_html=True)
-
     st.sidebar.title('About')
     st.sidebar.info('GitHub repository: <https://github.com/J-Reacher/Sm>')
 
@@ -48,7 +37,8 @@ def sidebar():
     # Contact information
     st.sidebar.title('Contact')
     st.sidebar.markdown("""
-                        If you find me interested, contact me on [Facebook](https://www.facebook.com/profile.php?id=100024994269437)
+                        If you find me interested, contact me on
+                         [Facebook](https://www.facebook.com/profile.php?id=100024994269437)
                          or [Zalo](https://zalo.me/0325808700).
                         """)
     st.sidebar.image('media/ZaloQR.jpg', caption='Zalo me')
@@ -62,6 +52,16 @@ if __name__ == '__main__':
         page_icon=':green_heart:',
         layout='wide',
     )
+    # hide_st_style
+    # header {visibility: hidden;}
+    #
+    st.markdown("""
+                    <style>
+                    #MainMenu {visibility: hidden;}
+
+                    footer {visibility: hidden;}
+                    </style>
+                    """, unsafe_allow_html=True)
     sidebar()
 
     pages = ['Home', 'Data', 'Gallery']

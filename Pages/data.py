@@ -29,7 +29,6 @@ except AttributeError as e:
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
 def run_query(query):
     with conn.cursor() as cur:
         try:
@@ -60,7 +59,6 @@ def table_names():
     return [i[0] for i in run_query('SHOW TABLES;')]
 
 
-@st.experimental_singleton
 def example():
     # Displays the codes and then executes it
     with st.echo():
