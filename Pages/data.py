@@ -17,19 +17,13 @@ st.sidebar.info("""
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
-@st.experimental_singleton
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
 
 
-try:
-    conn = init_connection()
-except Exception as e:
-    st.info(e)
+conn = init_connection()
 
 
-# Perform query.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def run_query(query):
     with conn.cursor() as cur:
@@ -37,6 +31,8 @@ def run_query(query):
         return cur.fetchall()
 
 
+# Perform query.
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_singleton
 def sep():
     # Horizontal line separator
@@ -55,9 +51,8 @@ def execute():
     if st.button('Execute'):
         eval(your_codes)
 
-    # Function that returns the table's column names
 
-
+# Function that returns the table's column names
 def col_names(table_name):
     return [row[0] for row in run_query(f"SHOW COLUMNS FROM {table_name};")]
 
