@@ -64,7 +64,7 @@ def table_names():
 def example():
     # Displays the codes and then executes it
     with st.echo():
-        st.write('Some queries')
+        st.write('Some queries :mag:')
 
         # Function returns tables read from the database with provided table names
         def examples(table_name):
