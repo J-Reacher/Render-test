@@ -13,14 +13,12 @@ def apod():
 
     images = soup.find_all('img')
 
-    name = None
-    link = None
+    src = None
     for image in images:
-        name = image['alt']
-        link = image['src']
+        src = image['src']
     st.header('Astronomy Picture of the Day')
     st.info(f'[Original Image]({url})')
-    st.image(f'{url}{link}', caption=name)
+    st.image(f'{url}{src}')
 
 
 def home_page():
