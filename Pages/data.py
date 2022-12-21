@@ -21,18 +21,24 @@ def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
 
 
-conn = init_connection()
-
-
-@st.experimental_memo(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
+try:
+    conn = init_connection()
+except AttributeError as e:
+    st.info(e)
 
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
+def run_query(query):
+    with conn.cursor() as cur:
+        try:
+            cur.execute(query)
+        except SyntaxError:
+            st.warning('MySQL syntax error')
+        return cur.fetchall()
+
+
 @st.experimental_singleton
 def sep():
     # Horizontal line separator
@@ -43,13 +49,6 @@ def sep():
                     background-color:#333;" 
                     /> 
                     """)
-
-
-def execute():
-    your_codes = st.text_area('Codes you type below will be executed directly:',
-                              "st.write(':sunny: Nam has a :snake: pet in his backyard')")
-    if st.button('Execute'):
-        eval(your_codes)
 
 
 # Function that returns the table's column names
@@ -65,6 +64,8 @@ def table_names():
 def example():
     # Displays the codes and then executes it
     with st.echo():
+        st.write('Some queries')
+
         # Function returns tables read from the database with provided table names
         def examples(table_name):
             return pd.DataFrame(

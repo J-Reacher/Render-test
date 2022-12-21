@@ -11,16 +11,21 @@ def home():
 
 def data():
     st.title('Data')
-    from Pages.data import sep, execute, example, menu
+    from Pages.data import sep, example, menu
 
-    execute()
+    col1, col2 = st.columns(2)
+    with col1:
+        your_codes = st.text_area('Codes you type below will be executed directly:',
+                                  "st.write(':sunny: Nam has a :snake: pet in his backyard')")
+        if st.button('Execute'):
+            try:
+                eval(your_codes)
+            except SyntaxError:
+                st.warning('Syntax error')
+    with col2:
+        if st.button('Examples'):
+            example()
     sep()
-
-    if st.button('Examples'):
-        st.markdown("A connection test with MySQL remote server")
-        example()
-    sep()
-
     menu()
 
 
