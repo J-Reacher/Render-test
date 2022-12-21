@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 # Get the image and its alternative text from apod
-@st.experimental_memo
+@st.experimental_memo(ttl=600)
 def apod():
     url = 'https://apod.nasa.gov/apod/'
 
@@ -14,11 +14,13 @@ def apod():
     images = soup.find_all('img')
 
     src = None
+    alt = None
     for image in images:
         src = image['src']
+        alt = image['alt']
     st.header('Astronomy Picture of the Day')
     st.info(f'[Original Image]({url})')
-    st.image(f'{url}{src}')
+    st.image(f'{url}{src}', caption=alt)
 
 
 def home_page():

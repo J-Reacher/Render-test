@@ -13,26 +13,10 @@ def data():
     st.title('Data')
     from Pages.data import sep, example, menu
 
-    col1, col2 = st.columns(2)
-    with col1:
-        your_codes = st.text_area('Codes you type below will be executed directly:',
-                                  "st.write(':sunny: Nam has a :snake: pet in his backyard')")
-        if st.button('Execute'):
-            try:
-                eval(your_codes)
-            except SyntaxError:
-                st.warning('Syntax error')
-    with col2:
-        if st.button('Examples'):
-            example()
-    sep()
+    if st.button('Examples'):
+        example()
+        sep()
     menu()
-
-
-def matplot():
-    st.title('Matplot')
-    from Pages.matplot import matplot_page
-    matplot_page()
 
 
 def gallery():
@@ -64,8 +48,8 @@ def sidebar():
     # Contact information
     st.sidebar.title('Contact')
     st.sidebar.markdown("""
-                        If you find me interested, contact me on [Zalo](https://zalo.me/0325808700)
-                         of [Facebook](https://www.facebook.com/profile.php?id=100024994269437)
+                        If you find me interested, contact me on [Facebook](https://www.facebook.com/profile.php?id=100024994269437)
+                         or [Zalo](https://zalo.me/0325808700).
                         """)
     st.sidebar.image('media/ZaloQR.jpg', caption='Zalo me')
 
@@ -80,7 +64,7 @@ if __name__ == '__main__':
     )
     sidebar()
 
-    pages = ['Home', 'Data', 'Matplot', 'Gallery']
+    pages = ['Home', 'Data', 'Gallery']
     page_icons = ['house', '', '', '']
     selected_page = om(None, pages, icons=page_icons, orientation='horizontal')
     for page in pages:
