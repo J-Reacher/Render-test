@@ -5,7 +5,6 @@ import streamlit as st
 def home():
     st.title('Home')
     from Pages.home import home_page
-    st.balloons()
     home_page()
 
 
@@ -22,7 +21,6 @@ def data():
 def gallery():
     st.title('Gallery')
     from Pages.gallery import gallery_page
-    st.snow()
     gallery_page()
 
 

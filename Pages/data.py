@@ -15,28 +15,21 @@ st.sidebar.info("""
                 """)
 
 
-# Initialize connection.
-# Uses st.experimental_singleton to only run once.
+@st.experimental_singleton
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
 
 
-try:
-    conn = init_connection()
-except AttributeError as e:
-    st.info(e)
+conn = init_connection()
 
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
 def run_query(query):
-    try:
-        with conn.cursor(buffered=True) as cur:
-            cur.execute(query)
-    except SyntaxError:
-        st.warning('MySQL syntax error')
-    cur.close()
-    return cur.fetchall()
+    with conn.cursor() as cur:
+        cur.execute(query)
+        return cur.fetchall()
 
 
 @st.experimental_singleton
@@ -82,7 +75,7 @@ def menu():
     def _choices(ch, ops):
         for option in ops:
             if ch == option:
-                _query = eval(f"_{option.lower()}()")
+                _query = eval(f"_{option.lower()}()")  # For instance: _update()
                 if st.button(option):
                     run_query(_query)
                     st.success(f'{option} successfully')
