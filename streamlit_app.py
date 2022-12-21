@@ -57,6 +57,10 @@ def sidebar():
     st.sidebar.title('About')
     st.sidebar.info('GitHub repository: <https://github.com/J-Reacher/Sm>')
 
+    if st.button('Clear all caches'):
+        st.experimental_memo.clear()
+        st.experimental_singleton.clear()
+
     # Contact information
     st.sidebar.title('Contact')
     st.sidebar.markdown("""
