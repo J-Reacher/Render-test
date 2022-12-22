@@ -43,8 +43,6 @@ def example():
 
 
 def menu():
-    if st.button('Init connection'):
-        init_connection()
     example()
 
     # Adapt names with its choices
@@ -55,7 +53,7 @@ def menu():
                 if st.button(option):
                     run_query(_query)
                     st.success(f'{option} successfully')
-                    connection.commit()
+                    connection.commit()  # Essentially statement
 
     col1, col2 = st.columns([0.6, 0.4])
     with col1:
