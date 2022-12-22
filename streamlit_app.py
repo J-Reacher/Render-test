@@ -63,7 +63,7 @@ if __name__ == '__main__':
     sidebar()
 
     pages = ['Home', 'Data', 'Gallery']
-    page_icons = ['house', '', '', '']
+    page_icons = ['house', '', '']
     selected_page = om(None, pages, icons=page_icons, orientation='horizontal')
     for page in pages:
         if selected_page == page:
