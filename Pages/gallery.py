@@ -1,7 +1,6 @@
 import streamlit as st
 
 
-# @st.experimental_singleton
 def gallery_page():
     col1, col2 = st.columns([0.75, 0.275])
     with col1:
