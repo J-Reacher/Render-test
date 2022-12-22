@@ -1,7 +1,6 @@
 import mysql.connector
 import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu as om
 
 
@@ -9,25 +8,13 @@ def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
 
 
-conn = init_connection()
+connection = init_connection()
 
 
 def run_query(query):
-    with conn.cursor() as cur:
+    with connection.cursor() as cur:
         cur.execute(query)
         return cur.fetchall()
-
-
-@st.experimental_singleton
-def sep():
-    # Horizontal line separator
-    components.html("""
-                    <hr style="height:1px;
-                    border:none;
-                    color:#333;
-                    background-color:#333;" 
-                    /> 
-                    """)
 
 
 # Function that returns the table's column names
@@ -40,8 +27,7 @@ def table_names():
 
 
 def example():
-    # Displays the codes and then executes it
-    with st.echo():
+    with st.echo():  # Displays the codes and then executes it
         st.write('Some queries :mag:')
 
         # Function returns tables read from the database with provided table names
@@ -57,6 +43,11 @@ def example():
 
 
 def menu():
+    if st.button('Init connection'):
+        init_connection()
+
+    example()
+
     # Adapt names with its choices
     def _choices(ch, ops):
         for option in ops:
