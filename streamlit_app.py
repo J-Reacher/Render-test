@@ -12,16 +12,20 @@ def data():
     st.title('Data')
     from Pages.data import sep, example, menu
 
+    st.info("""
+            Student management using Python's module [Streamlit](https://streamlit.io/)
+              and
+             [MySQL](https://www.mysql.com/) hosted on [Free SQL database](https://www.freesqldatabase.com/)
+             """)
+    st.info("""
+            The emojis you've seen is available from
+            [Streamlit emoji shortcodes](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
+            """)
+
     if st.button('Examples'):
         example()
         sep()
     menu()
-
-
-def gallery():
-    st.title('Gallery')
-    from Pages.gallery import gallery_page
-    gallery_page()
 
 
 def sidebar():
@@ -46,20 +50,9 @@ if __name__ == '__main__':
         page_icon=':green_heart:',
         layout='wide',
     )
-    # hide_st_style
-    # header {visibility: hidden;}
-    #
-    '''st.markdown("""
-                    <style>
-                    #MainMenu {visibility: hidden;}
-
-                    footer {visibility: hidden;}
-                    </style>
-                    """, unsafe_allow_html=True)
-                    '''
     sidebar()
 
-    pages = ['Home', 'Data', 'Gallery']
+    pages = ['Home', 'Data']
     page_icons = ['house', '', '']
     selected_page = om(None, pages, icons=page_icons, orientation='horizontal')
     for page in pages:

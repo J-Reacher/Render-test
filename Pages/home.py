@@ -22,13 +22,17 @@ def apod():
 
 
 def home_page():
-    col1, col2 = st.columns([0.5, 0.5])
+    col1, col2, col3 = st.columns(3)
     with col1:
         apod()
+        st.image('media/nang_chieu_qua_ke_la.jpg')
 
     with col2:
-        st.header("Welcome to my website!!")
-        st.markdown('A short yet memorable time to me')
-        st.markdown(
-            'Editor: [Dan Khanh](https://www.facebook.com/nangva.mua.908)')
         st.video('https://youtu.be/beACOLaYtkM')
+        st.markdown('Editor: [Dan Khanh](https://www.facebook.com/nangva.mua.908)')
+
+        st.image('media/hoa_cuc.jpg')
+
+    with col3:
+        st.image('media/doan_duong.jpg', caption='Đoạn đường ta đã qua')
+        st.image('media/nam_tay.jpg', caption='Vẫn có em ở lại')

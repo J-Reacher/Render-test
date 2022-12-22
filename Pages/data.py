@@ -4,16 +4,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu as om
 
-st.sidebar.info(("""
-                 Student management using Python's module [Streamlit](https://streamlit.io/)
-                 and
-                 [MySQL](https://www.mysql.com/) hosted on [Free SQL database](https://www.freesqldatabase.com/)
-                 """))
-st.sidebar.info("""
-                The emojis you've seen is available from
-                [Streamlit emoji shortcodes](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
-                """)
-
 
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])

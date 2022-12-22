@@ -1,7 +1,5 @@
 beautifulsoup4
-matplotlib
 mysql_connector_python
-numpy
 pandas
 requests
 streamlit
