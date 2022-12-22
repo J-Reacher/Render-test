@@ -49,13 +49,14 @@ if __name__ == '__main__':
     # hide_st_style
     # header {visibility: hidden;}
     #
-    st.markdown("""
+    '''st.markdown("""
                     <style>
                     #MainMenu {visibility: hidden;}
 
                     footer {visibility: hidden;}
                     </style>
                     """, unsafe_allow_html=True)
+                    '''
     sidebar()
 
     pages = ['Home', 'Data', 'Gallery']
