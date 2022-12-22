@@ -12,9 +12,9 @@ connection = init_connection()
 
 
 def run_query(query):
-    with connection.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        return cursor.fetchall()
 
 
 # Function that returns the table's column names
@@ -45,7 +45,6 @@ def example():
 def menu():
     if st.button('Init connection'):
         init_connection()
-
     example()
 
     # Adapt names with its choices
