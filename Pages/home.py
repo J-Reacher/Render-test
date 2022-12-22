@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 # Get the image and its alternative text from apod
-@st.experimental_memo(ttl=600)
+# @st.experimental_memo(ttl=600)
 def apod():
     url = 'https://apod.nasa.gov/apod/'
 
