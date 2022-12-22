@@ -8,7 +8,6 @@
 
 # Additional
 .streamlit/secrets.toml
-test.py
 
 # C extensions
 *.so
