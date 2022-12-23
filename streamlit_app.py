@@ -45,7 +45,7 @@ def example(table_name):
 
 def menu():
     # Query directly from the web
-    the_query = st.text_area('Optional query:', 'SELECT * FROM Students;')
+    the_query = st.text_area('Optional query:', 'SELECT * FROM Pets;')
     if st.button('Query'):
         df = pd.DataFrame(run_query(the_query))
         st.dataframe(df)
@@ -53,9 +53,8 @@ def menu():
 
     st.markdown('---')
 
-    st.markdown('Few examples:')
-    for table in table_names:
-        example(table)
+    st.markdown('Students:')
+    example('Students')
 
     options = ['Insert', 'Update', 'Delete']
     choice = om(None, options, orientation='horizontal')
@@ -139,23 +138,23 @@ def _delete():
 
 
 @st.experimental_singleton
-def page_info():
-    st.title('Data')
+def powered_by():
     col1, col2 = st.columns(2)
     with col1:
         st.info("""
-                        Student management using Python's module [Streamlit](https://streamlit.io/)
-                          and
-                         [MySQL](https://www.mysql.com/) hosted on [Free SQL database](https://www.freesqldatabase.com/)
-                         """)
+                Student management using Python's module [Streamlit](https://streamlit.io/)
+                  and
+                 [MySQL](https://www.mysql.com/) hosted on [Free SQL database](https://www.freesqldatabase.com/)
+                """)
     with col2:
         st.info("""
-                        The emojis you've seen is available from
-                        [Streamlit emoji shortcodes]
-                        (https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
-                        """)
+                The emojis you've seen is available from
+                [Streamlit emoji shortcodes]
+                (https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
+                """)
 
 
 if __name__ == '__main__':
-    page_info()
+    st.title('Data')
     menu()
+    powered_by()
