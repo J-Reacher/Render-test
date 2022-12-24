@@ -130,7 +130,7 @@ def _update():
 
 
 def _delete():
-    with st.form:
+    with st.form('Delete'):
         table_name = st.selectbox('Table name:', [i[0] for i in run_query('SHOW TABLES;')])
         condition = st.text_input('Condition:')
         if st.form_submit_button('Submit'):
