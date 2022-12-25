@@ -5,7 +5,13 @@ import mysql.connector
 import pandas as pd
 import streamlit as st
 
-connection = mysql.connector.connect(**st.secrets["mysql"])
+
+@st.experimental_singleton
+def init_connection():
+    return mysql.connector.connect(**st.secrets["mysql"])
+
+
+connection = init_connection()
 
 
 async def run_query(query: str):
@@ -16,12 +22,11 @@ async def run_query(query: str):
 
 # -------------------------------------------------------------------------------------------------
 # get table's names, table's column names, table's column types
-
 tables = ['Students', 'Pets']
 
 
 # Function that returns the table's column names
-def col_names(table: str) -> list[str]:
+async def col_names(table: str) -> list[str]:
     return [row[0] for row in await run_query(f"SHOW COLUMNS FROM {table};")]
 
 
