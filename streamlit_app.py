@@ -50,7 +50,7 @@ async def example(table: str):
          Course, Remaining_fee, In_dormitory, Address
          FROM {table};
         """),
-        columns=col_names(table)
+        columns=await col_names(table)
     )
     st.dataframe(df)
 
@@ -113,7 +113,7 @@ async def _insert():
 async def _update():
     with st.form('Update'):
         table = st.selectbox('Table name:', tables)
-        column = st.selectbox('Set Column:', col_names(table))
+        column = st.selectbox('Set Column:', await col_names(table))
         value = st.text_input('With the Value:')
         condition = st.text_input('Where Condition are:')
 
