@@ -13,13 +13,13 @@ def init_connection():
 connection = init_connection()
 
 
-def run_query(query):
+def run_query(query: str):
     with connection.cursor() as cursor:
         cursor.execute(query)
         return cursor.fetchall()
 
 
-def tables():
+def tables() -> list[str]:
     return [i[0] for i in run_query('SHOW TABLES;')]
 
 
@@ -27,15 +27,15 @@ table_names = tables()
 
 
 # Function that returns the table's column names
-def table_col_names(table_name):
+def table_col_names(table_name: list[str]) -> list[str]:
     return [row[0] for row in run_query(f"SHOW COLUMNS FROM {table_name};")]
 
 
-def table_col_types(table_name):
+def table_col_types(table_name: list[str]) -> list[str]:
     return [row[1] for row in run_query(f"SHOW COLUMNS FROM {table_name};")]
 
 
-def example(table_name):
+def example(table_name: list[str]):
     st.markdown('Students:')
     df = pd.DataFrame(
         run_query(f"""
@@ -59,7 +59,7 @@ def menu():
 
     st.markdown('---')
 
-    example('Students')
+    example(['Students', ])
 
     options = ['Insert', 'Update', 'Delete']
     choice = om(None, options, orientation='horizontal')
