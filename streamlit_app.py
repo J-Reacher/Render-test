@@ -22,7 +22,7 @@ async def run_query(query: str):
 
 # -------------------------------------------------------------------------------------------------
 # get table's names, table's column names, table's column types
-tables = ['Students', 'Pets']
+tables = ['Students', 'Pets', ]
 
 
 # Function that returns the table's column names
