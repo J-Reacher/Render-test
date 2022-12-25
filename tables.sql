@@ -1,4 +1,7 @@
-CREATE TABLE Pets (name varchar(80), pet varchar(80));
+CREATE TABLE Pets (
+    name varchar(80),
+    pet varchar(80)
+   );
 
 INSERT INTO
     Pets

@@ -1,11 +1,12 @@
 # streamlit_app.py
-import asyncio
 
 import mysql.connector
 import pandas as pd
 import streamlit as st
 
 
+# ---------------------------------------------------------------
+# MySQL connection and query
 @st.experimental_singleton
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
@@ -14,11 +15,13 @@ def init_connection():
 connection = init_connection()
 
 
-async def run_query(query: str):
+def run_query(query: str) -> list[tuple]:
     with connection.cursor() as cursor:
         cursor.execute(query)
         return cursor.fetchall()
 
+
+# ---------------------------------------------------------------
 
 # -------------------------------------------------------------------------------------------------
 # get table's names, table's column names, table's column types
@@ -26,50 +29,53 @@ tables = ['Students', 'Pets', ]
 
 
 # Function that returns the table's column names
-async def col_names(table: str) -> list[str]:
-    return [row[0] for row in await run_query(f"SHOW COLUMNS FROM {table};")]
+@st.experimental_singleton
+def col_names(table: str) -> list[str]:
+    return [row[0] for row in run_query(f"SHOW COLUMNS FROM {table};")]
 
 
 # -------------------------------------------------------------------------------------------------
 
-async def optional_query():
+def optional_query():
     # Query directly from the web
     the_query = st.text_area('Optional query:', """SELECT name, pet \nFROM Pets \nWHERE name = N'Aries';""")
     if st.button('Query'):
-        df = pd.DataFrame(await run_query(the_query))
+        df = pd.DataFrame(run_query(the_query))
         st.dataframe(df)
         connection.commit()
 
 
-async def example(table: str):
-    st.markdown('Students:')
+def example(table: str):
+    st.markdown('Table Students:')
     df = pd.DataFrame(
-        await run_query(f"""
+        run_query(f"""
         SELECT 
          StudentID, Name, Major, DOB,
          Course, Remaining_fee, In_dormitory, Address
          FROM {table};
         """),
-        columns=await col_names(table)
+        columns=col_names(table)
     )
     st.dataframe(df)
 
 
-async def menu():
+# =======================================================================================
+# main
+def menu():
     from streamlit_option_menu import option_menu as om
 
     options = ['Insert', 'Update', 'Delete']
     choice = om(None, options, orientation='horizontal')
     match choice:
         case 'Insert':
-            await _insert()
+            _insert()
         case 'Update':
-            await _update()
+            _update()
         case 'Delete':
-            await _delete()
+            _delete()
 
 
-async def _insert():
+def _insert():
     table = st.selectbox('Table name:', tables)
     match table:
         case 'Students':
@@ -84,12 +90,13 @@ async def _insert():
                 address = st.text_area('Address')
 
                 if st.form_submit_button('Submit'):
-                    await run_query(f"""
+                    run_query(f"""
                             INSERT INTO
                                 {table}
                             VALUES
-                                ('{student_id}', '{student_name}', '{major}', '{dob}',
-                                '{learning_course}', '{fees}', '{dormitory}', '{address}');
+                                ('{student_id}', '{student_name}', '{major}',
+                                '{dob}', '{learning_course}', '{fees}',
+                                '{dormitory}', '{address}');
                             """)
                     connection.commit()
                     st.success('Inserted')
@@ -100,7 +107,7 @@ async def _insert():
                 pet = st.text_input('Pet:')
 
                 if st.form_submit_button('Submit'):
-                    await run_query(f"""
+                    run_query(f"""
                             INSERT INTO
                                 {table}
                             VALUES
@@ -110,15 +117,15 @@ async def _insert():
                     st.success('Inserted')
 
 
-async def _update():
+def _update():
     with st.form('Update'):
         table = st.selectbox('Table name:', tables)
-        column = st.selectbox('Set Column:', await col_names(table))
+        column = st.selectbox('Set Column:', col_names(table))
         value = st.text_input('With the Value:')
         condition = st.text_input('Where Condition are:')
 
         if st.form_submit_button('Submit'):
-            await run_query(f"""
+            run_query(f"""
                     UPDATE {table}
                     SET {column} = N'{value}'
                     WHERE {condition};
@@ -127,13 +134,13 @@ async def _update():
             st.success('Updated')
 
 
-async def _delete():
+def _delete():
     with st.form('Delete'):
         table = st.selectbox('Table name:', tables)
         condition = st.text_input('Condition:')
 
         if st.form_submit_button('Submit'):
-            await run_query(f"""
+            run_query(f"""
                     DELETE FROM {table}
                     WHERE {condition}
                     """)
@@ -141,8 +148,9 @@ async def _delete():
             st.success('Deleted')
 
 
+# =======================================================================================
 @st.experimental_singleton
-async def powered_by():
+def powered_by():
     st.info("""
     Student management using Python's module [Streamlit](https://streamlit.io/) and
      [MySQL](https://www.mysql.com/) hosted on [Free SQL database](https://www.freesqldatabase.com/).\n
@@ -151,15 +159,15 @@ async def powered_by():
     """)
 
 
-async def main():
-    await optional_query()
-    await example('Students')
-    await menu()
+def main():
+    optional_query()
+    example('Students')
+    menu()
 
 
 if __name__ == '__main__':
     st.title('Data')
     st.markdown('---')
-    asyncio.run(main())
+    main()
     st.markdown('---')
     powered_by()
