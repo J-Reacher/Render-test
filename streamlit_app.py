@@ -7,7 +7,6 @@ import streamlit as st
 
 # ---------------------------------------------------------------
 # MySQL connection and query
-@st.experimental_singleton
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
 
@@ -24,12 +23,11 @@ def run_query(query: str) -> list[tuple]:
 # ---------------------------------------------------------------
 
 # -------------------------------------------------------------------------------------------------
-# get table's names, table's column names, table's column types
+# get table's names, table's column names
 tables = ['Students', 'Pets', ]
 
 
 # Function that returns the table's column names
-@st.experimental_singleton
 def col_names(table: str) -> list[str]:
     return [row[0] for row in run_query(f"SHOW COLUMNS FROM {table};")]
 
